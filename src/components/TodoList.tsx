@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { useAppSelector } from '../../store/index';
+import { TodoComponent } from './TodoComponent';
 
 export const TodoList = () => {
   const todos = useAppSelector(store => {
@@ -8,12 +9,11 @@ export const TodoList = () => {
   })
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>ToDo</Text>
-      {todos.map(todo => <Text style={styles.item} key={Math.random()}>{todo}</Text>)}
+      {todos.map((todo, index) => <TodoComponent TodoText={todo} key={index} Index={index} />)}
     </View>
   );
 };
-
+//pegar index da lista e usar pop no store para remover
 const styles = StyleSheet.create({
   container: {
     width: '100%',
@@ -21,12 +21,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'column',
     padding: 16,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 16,
-    color: '#333',
   },
   item: {
     fontSize: 22,
