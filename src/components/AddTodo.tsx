@@ -10,6 +10,7 @@ export const FormComponent = () => {
     dispatch(add({
       inputValue
     }))
+    setInputValue('');
   };
 
   return (

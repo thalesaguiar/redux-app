@@ -1,7 +1,6 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { Provider as ReduxProvider } from 'react-redux';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { FormComponent } from './src/components/AddTodo';
 import { TodoList } from './src/components/TodoList';
 import { store } from './store';

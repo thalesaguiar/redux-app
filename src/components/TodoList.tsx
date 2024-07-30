@@ -1,17 +1,15 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { useSelector } from 'react-redux'
-import { store } from '../../store';
+import { useAppSelector } from '../../store/index';
 
 export const TodoList = () => {
-  const todos = useSelector(store => {
+  const todos = useAppSelector(store => {
     return store.todo;
   })
-  console.log(todos);
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ToDo</Text>
-      {todos.map(todo => <Text style={styles.item} key={todo}>{todo}</Text>)}
+      {todos.map(todo => <Text style={styles.item} key={Math.random()}>{todo}</Text>)}
     </View>
   );
 };
